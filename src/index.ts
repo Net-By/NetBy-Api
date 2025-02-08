@@ -9,7 +9,9 @@ export async function handler(event) {
   const userEmail = event.queryStringParameters.email;
 
   // Insert in DB
-  const { error } = await supabase.from("emails").insert({ email: userEmail });
+  const { error } = await supabase
+    .from("netbyemails")
+    .insert({ email: userEmail });
   console.log(error);
 
   // Return success response
